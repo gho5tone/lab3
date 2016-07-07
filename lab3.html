@@ -10,7 +10,6 @@
             margin: 0;
             padding: 0;
         }
-
         #map {
             text-align: center;
             height: 80%;
@@ -22,9 +21,26 @@
             position: absolute;
             margin: auto;
         }
+
+        #quiz {
+             position: absolute;
+            top: 10px;
+            left: 30%;
+            z-index: 99;
+            height: 100px;
+            width: 500px;
+            background-color: #ffffcc;
+        }
     </style>
     <script>
         var map;
+        var jacaranda;
+        var chaparral;
+        var eucalyptus;
+        var sierra;
+        var oviatt;
+
+
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 34.239579, lng: -118.529327},
@@ -39,14 +55,70 @@
                 draggable: false,
                 disableDoubleClickZoom: true
             });
+
+            jacaranda = new google.maps.Rectangle({
+                map: map,
+                strokeOpacity: 0,
+                fillOpacity: 0,
+                bounds: new google.maps.LatLngBounds(
+                  new google.maps.LatLng(34.241054, -118.529448),
+                  new google.maps.LatLng(34.242074, -118.527860)
+                  )
+            });
+
+            sierra = new google.maps.Rectangle({
+                map: map,
+                strokeOpacity: 0,
+                fillOpacity: 0,
+                bounds: new google.maps.LatLngBounds(
+                  new google.maps.LatLng(34.238436, -118.531355),
+                  new google.maps.LatLng(34.238761, -118.527677)
+                  )
+            });
+
+            eucalyptus = new google.maps.Rectange({
+                map: map,
+                strokeOpacity: 0,
+                fillOpacity: 0,
+                bounds: new google.maps.LatLngBounds(
+                  new google.maps.LatLng(34.238566, -118.528756),
+                  new google.maps.LatLng(34.238125, -118.530054)
+                  )
+            });
+
+            chaparral = new google.maps.Rectangle({
+                map: map,
+                strokeOpacity: 0,
+                fillOpacity: 0,
+                bounds: new google.maps.LatLngBounds(
+                  new google.maps.LatLng(34.238570, -118.526739),
+                  new google.maps.LatLng(34.238125, -118.530054)
+                  )
+            });
+
+            oviatt = new google.maps.Rectangle({
+                 map: map,
+                strokeOpacity: 0,
+                fillOpacity: 0,
+                bounds: new google.maps.LatLngBounds(
+                  new google.maps.LatLng(34.239788, -118.529730),
+                  new google.maps.LatLng(34.240378, -118.5288636)
+                  )
+            });
         }
+
+
+
+        window.addEventListener("load", initMap, false);
     </script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADPr_oJ7bT9wSnciinupzCsb44b92ZTkA&callback=initMap">
     </script>
 </head>
 <body>
-<div id="map"></div>
+    <div id="map">
+        <div id="quiz">Map Quiz</div>
+    </div>
 
 </body>
 </html>
