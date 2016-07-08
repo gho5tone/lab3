@@ -32,6 +32,22 @@
             margin: 0 auto;
         }
 
+        #total{
+            display: none;
+            position: fixed;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+        }
+        #content{
+            background: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: center;
+        }
+
     </style>
     <script>
         var map;
@@ -199,12 +215,14 @@
 
         function start() {
             q = document.getElementById("question");
-
+            var modal = document.getElementById('total');
+            var s =  document.getElementById('content');
             switch (counter) {
                 case 2: q.innerHTML = "Where is Sierra Hall?"; break;
                 case 3: q.innerHTML = "Where is Eucalpytus Hall?"; break;
                 case 4: q.innerHTML = "Where is Chaparral Hall?"; break;
                 case 5: q.innerHTML = "Where is the Oviatt Library?";break;
+                case 6: modal.style.display = "block"; s.innerHTML = "Answer that are correct is "+correctAnswer + "/5" ;break;
             }
         }
 
@@ -222,7 +240,12 @@
     <h3 id="question">Where is Jacardanda Hall?</h3><p id="answer"></p>
     <div id="map">
     </div>
-    <div ></div>
+    <div id="total">
+        <div id="content">
+            <p type="text"> </p>
+        </div>
+
+    </div>
 
 </body>
 </html>
