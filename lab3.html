@@ -12,8 +12,8 @@
         }
         #map {
             text-align: center;
-            height: 80%;
-            width: 80%;
+            height: 85%;
+            width: 100%;
             top:0;
             bottom: 0;
             left: 0;
@@ -22,9 +22,21 @@
             margin: auto;
         }
 
+        #question {
+            width: 325px;
+            margin: 0 auto;
+        }
+
+        #answer {
+            width: 80px;
+            margin: 0 auto;
+        }
+
     </style>
     <script>
         var map;
+        var q;
+        var a;
         var jacaranda;
         var chaparral;
         var eucalyptus;
@@ -32,10 +44,12 @@
         var oviatt;
         var questionAnswer = ["jacaranda", "sierra", "eucalyptus", "chaparral", "oviatt"];
         var correctAnswer = 0;
+        var counter = 1;
 
 
 
         function initMap() {
+
             map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 34.239579, lng: -118.529327},
                 zoom: 16,
@@ -65,8 +79,8 @@
                 strokeOpacity: 0,
                 fillOpacity: 0,
                 bounds: new google.maps.LatLngBounds(
-                  new google.maps.LatLng(34.238436, -118.531355),
-                  new google.maps.LatLng(34.238761, -118.527677)
+                  new google.maps.LatLng(34.238116, -118.531372),
+                  new google.maps.LatLng(34.238444, -118.530058)
                   )
             });
 
@@ -75,8 +89,8 @@
                 strokeOpacity: 0,
                 fillOpacity: 0,
                 bounds: new google.maps.LatLngBounds(
-                  new google.maps.LatLng(34.238566, -118.528756),
-                  new google.maps.LatLng(34.238125, -118.530054)
+                  new google.maps.LatLng(34.238561, -118.528757),
+                  new google.maps.LatLng(34.238759, -118.527681)
                   )
             });
 
@@ -85,8 +99,8 @@
                 strokeOpacity: 0,
                 fillOpacity: 0,
                 bounds: new google.maps.LatLngBounds(
-                  new google.maps.LatLng(34.238570, -118.526739),
-                  new google.maps.LatLng(34.238125, -118.530054)
+                  new google.maps.LatLng(34.237910, -118.526949),
+                  new google.maps.LatLng(34.238582, -118.526729)
                   )
             });
 
@@ -101,42 +115,86 @@
             });
 
             google.maps.event.addListener(jacaranda, 'dblclick', function() {
-                checkAnswer(0);
+                check(0);
             });
             google.maps.event.addListener(sierra, 'dblclick', function() {
-                checkAnswer(1);
+                check(1);
             });
             google.maps.event.addListener(eucalyptus, 'dblclick', function() {
-                checkAnswer(2);
+                check(2);
             });
             google.maps.event.addListener(chaparral, 'dblclick', function() {
-                checkAnswer(3);
+                check(3);
             });
             google.maps.event.addListener(oviatt, 'dblclick', function() {
-                checkAnswer(4);
+                check(4);
             });
+            start();
         }
 
-        function checkAnswer(answer) {
-            if (questionAnswer[answer] === "jacaranda") {
-                correctAnswer++;
+        function check(answer) {
+            a = document.getElementById("answer");
+            switch(counter) {
+                case 1:
+                    if (questionAnswer[answer] === "jacaranda") {
+                        correctAnswer++;
+                        a.innerHTML = "Correct!";
+                        jacaranda.setOptions({strokeOpacity: 1, strokeColor: 'green'});
+                    }
+                    else {
+                        a.innerHTML = "Incorrect!";
+                        jacaranda.setOptions({strokeOpacity: 1, strokeColor: 'red'});
+                    }
+                    break;
+                case 2:
+                    if (questionAnswer[answer] === "sierra") {
+
+                    }
+                    else {
+
+                    }
+                    break;
+                case 3:
+                    if (questionAnswer[answer] === "eucalyptus") {
+
+                    }
+                    else {
+
+                    }
+                    break;
+                case 4:
+                    if (questionAnswer[answer] === "chaparral") {
+
+                    }
+                    else {
+
+                    }
+                    break;
+                case 5:
+                    if (questionAnswer[answer] === "oviatt") {
+
+                    }
+                    else {
+
+                    }
+                    break;
             }
-            else if (questionAnswer[answer] === "sierra") {
-                correctAnswer++;
-            }
-            else if (questionAnswer[answer] === "eucalyptus") {
-                correctAnswer++;
-            }
-            else if (questionAnswer[answer] === "chaparral") {
-                correctAnswer++;
-            }
-            else if (questionAnswer[answer] === "oviatt") {
-                correctAnswer++;
-            }
-            else {
-                //u r wrong.
+            counter++;
+            start();
+
+        }
+
+        function start() {
+            q = document.getElementById("question");
+            switch (counter) {
+                case 2: q.innerHTML = "Where is Sierra Hall?"; break;
+                case 3: q.innerHTML = "Where is Eucalpytus Hall?"; break;
+                case 4: q.innerHTML = "Where is Chaparral Hall?"; break;
+                case 5: q.innerHTML = "Where is the Oviatt Library?";break;
             }
         }
+
+
 
 
 
@@ -147,8 +205,8 @@
     </script>
 </head>
 <body>
+    <h3 id="question">Where is Jacardanda Hall?</h3><p id="answer"></p>
     <div id="map">
-        <div id="quiz">Map Quiz</div>
     </div>
 
 </body>
