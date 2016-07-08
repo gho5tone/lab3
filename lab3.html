@@ -22,15 +22,6 @@
             margin: auto;
         }
 
-        #quiz {
-             position: absolute;
-            top: 10px;
-            left: 30%;
-            z-index: 99;
-            height: 100px;
-            width: 500px;
-            background-color: #ffffcc;
-        }
     </style>
     <script>
         var map;
@@ -39,7 +30,9 @@
         var eucalyptus;
         var sierra;
         var oviatt;
-        var correctAnswers = 0;
+        var questionAnswer = ["jacaranda", "sierra", "eucalyptus", "chaparral", "oviatt"];
+        var correctAnswer = 0;
+
 
 
         function initMap() {
@@ -77,7 +70,7 @@
                   )
             });
 
-            eucalyptus = new google.maps.Rectange({
+            eucalyptus = new google.maps.Rectangle({
                 map: map,
                 strokeOpacity: 0,
                 fillOpacity: 0,
@@ -106,6 +99,43 @@
                   new google.maps.LatLng(34.240378, -118.5288636)
                   )
             });
+
+            google.maps.event.addListener(jacaranda, 'dblclick', function() {
+                checkAnswer(0);
+            });
+            google.maps.event.addListener(sierra, 'dblclick', function() {
+                checkAnswer(1);
+            });
+            google.maps.event.addListener(eucalyptus, 'dblclick', function() {
+                checkAnswer(2);
+            });
+            google.maps.event.addListener(chaparral, 'dblclick', function() {
+                checkAnswer(3);
+            });
+            google.maps.event.addListener(oviatt, 'dblclick', function() {
+                checkAnswer(4);
+            });
+        }
+
+        function checkAnswer(answer) {
+            if (questionAnswer[answer] === "jacaranda") {
+                correctAnswer++;
+            }
+            else if (questionAnswer[answer] === "sierra") {
+                correctAnswer++;
+            }
+            else if (questionAnswer[answer] === "eucalyptus") {
+                correctAnswer++;
+            }
+            else if (questionAnswer[answer] === "chaparral") {
+                correctAnswer++;
+            }
+            else if (questionAnswer[answer] === "oviatt") {
+                correctAnswer++;
+            }
+            else {
+                //u r wrong.
+            }
         }
 
 
