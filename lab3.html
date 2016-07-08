@@ -164,7 +164,7 @@
                     }
                     setTimeout(function() {
                         jacaranda.setOptions({strokeOpacity:0})
-                    }, 3000);
+                    }, 1000);
                     break;
                 case 2:
                     if (questionAnswer[answer] === "sierra") {
@@ -178,7 +178,7 @@
                     }
                     setTimeout(function() {
                         sierra.setOptions({strokeOpacity:0})
-                    }, 3000);
+                    }, 1000);
                     break;
                 case 3:
                     if (questionAnswer[answer] === "eucalyptus") {
@@ -192,7 +192,7 @@
                     }
                     setTimeout(function() {
                         eucalyptus.setOptions({strokeOpacity:0})
-                    }, 3000);
+                    }, 1000);
                     break;
                 case 4:
                     if (questionAnswer[answer] === "chaparral") {
@@ -206,7 +206,7 @@
                     }
                     setTimeout(function() {
                         chaparral.setOptions({strokeOpacity:0})
-                    }, 3000);
+                    }, 1000);
                     break;
                 case 5:
                     if (questionAnswer[answer] === "oviatt") {
@@ -220,10 +220,13 @@
                     }
                     setTimeout(function() {
                         oviatt.setOptions({strokeOpacity:0})
-                    }, 3000);
+                    }, 1000);
                     break;
             }
             counter++;
+            setTimeout(function() {
+                a.innerHTML = "";
+            }, 1000);
             start();
 
         }
@@ -250,6 +253,7 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADPr_oJ7bT9wSnciinupzCsb44b92ZTkA&callback=initMap">
     </script>
+    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 </head>
 <body>
     <h3 id="question">Where is Jacardanda Hall?</h3><p id="answer"></p>
