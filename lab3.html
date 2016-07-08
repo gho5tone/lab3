@@ -65,7 +65,10 @@
 
 
         function initMap() {
-
+            q = document.getElementById("question");
+             setTimeout(function() {
+                q.innerHTML = "Where is Jacaranda Hall?";
+            }, 1000);
             map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 34.239579, lng: -118.529327},
                 zoom: 16,
@@ -232,7 +235,6 @@
         }
 
         function start() {
-            q = document.getElementById("question");
             var modal = document.getElementById('total');
             var s =  document.getElementById('content');
             switch (counter) {
@@ -256,7 +258,7 @@
     <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 </head>
 <body>
-    <h3 id="question">Where is Jacardanda Hall?</h3><p id="answer"></p>
+    <h3 id="question">CSUN Campus Quiz</h3><p id="answer"></p>
     <div id="map">
     </div>
     <div id="total">
