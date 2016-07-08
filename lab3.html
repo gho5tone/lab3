@@ -148,34 +148,46 @@
                     break;
                 case 2:
                     if (questionAnswer[answer] === "sierra") {
-
+                        correctAnswer++;
+                        a.innerHTML = "Correct!";
+                        sierra.setOptions({strokeOpacity: 1, strokeColor: 'green'});
                     }
                     else {
-
+                        a.innerHTML = "Incorrect!";
+                        sierra.setOptions({strokeOpacity: 1, strokeColor: 'red'});
                     }
                     break;
                 case 3:
                     if (questionAnswer[answer] === "eucalyptus") {
-
+                        correctAnswer++;
+                        a.innerHTML = "Correct!";
+                        eucalyptus.setOptions({strokeOpacity: 1, strokeColor: 'green'});
                     }
                     else {
-
+                        a.innerHTML = "Incorrect!";
+                        eucalyptus.setOptions({strokeOpacity: 1, strokeColor: 'red'});
                     }
                     break;
                 case 4:
                     if (questionAnswer[answer] === "chaparral") {
-
+                        correctAnswer++;
+                        a.innerHTML = "Correct!";
+                        chaparral.setOptions({strokeOpacity: 1, strokeColor: 'green'});
                     }
                     else {
-
+                        a.innerHTML = "Incorrect!";
+                        chaparral.setOptions({strokeOpacity: 1, strokeColor: 'red'});
                     }
                     break;
                 case 5:
                     if (questionAnswer[answer] === "oviatt") {
-
+                        correctAnswer++;
+                        a.innerHTML = "Correct!";
+                        oviatt.setOptions({strokeOpacity: 1, strokeColor: 'green'});
                     }
                     else {
-
+                        a.innerHTML = "Incorrect!";
+                        oviatt.setOptions({strokeOpacity: 1, strokeColor: 'red'});
                     }
                     break;
             }
@@ -186,6 +198,7 @@
 
         function start() {
             q = document.getElementById("question");
+
             switch (counter) {
                 case 2: q.innerHTML = "Where is Sierra Hall?"; break;
                 case 3: q.innerHTML = "Where is Eucalpytus Hall?"; break;
